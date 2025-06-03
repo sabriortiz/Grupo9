@@ -4,5 +4,99 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
-  <Carousel />
-</MainLayout>
+
+
+  <section class="intro">
+    <h1>ATLAS DE LEYENDAS URBANAS</h1>
+    <hr />
+  </section>
+  <section class="home-seccion">
+    <div class="columna-carrusel">
+      <Carousel />
+    </div>
+    <div class="columna-texto">
+      <p>En cada rincón del mundo hay una historia que no se cuenta en los libros.</p>
+      <p>Este atlas reúne las voces susurradas de pueblos lejanos,mitos urbanos y sombras que recorren las calles al caer la noche.</p>
+      <p>Descubrí las historias más inquietantes que nunca te contaron.</p>
+      <p>Explorá... o compartí la leyenda que te marcó.</p>
+      <a href="/stories" class="boton">Explorar Leyendas</a>
+       <a href="/" class="boton">Compartir Leyenda </a>
+    </div>
+  </section>
+  
+ </MainLayout>
+
+<style>
+  .intro {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro h1 {
+    font-size: 2.9rem;
+    font-weight: bold; 
+  }
+
+  .intro hr{
+    width:95%;
+    margin: 1.8rem auto;
+    border: none;
+    border-top: 2px solid;
+  }
+
+  .home-seccion{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 2rem 2rem 2rem;
+  }
+
+  .columna-carrusel,
+  .columna-texto {
+    flex: 1;
+  }
+
+  .columna-texto{
+    padding: 1rem;
+    font-size: 1.59rem;
+    line-height: 1.6;
+  }
+
+  .boton {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.45rem 1.5rem;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .boton:hover {
+    background-color: #555;
+  }
+
+  .boton + .boton {
+    margin-left: 8rem;
+  }
+
+ /* para celulares */
+  @media(max-width: 768px) {
+    .home-seccion{
+      flex-direction: column;
+      padding: 1rem;
+    }
+    .columna-carrusel,
+    .columna-texto{
+      flex:none;
+      width: 100%;
+    }
+
+    .columna-texto{
+      text-align: center;
+    }
+  }
+</style>

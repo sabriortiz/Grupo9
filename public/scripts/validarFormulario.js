@@ -37,8 +37,8 @@ if(mensaje === ''){
 }
 
 //mostrar mensaje de exito 
+ const mensajeExito=document.getElementById('mensaje-exito');
 if(errorNombre.textContent==='' && errorEmail.textContent==='' && errorMensaje.textContent===''){
-    const mensajeExito=document.getElementById('mensaje-exito');
     mensajeExito.textContent='Mensaje enviado correctamente';
     mensajeExito.style.display='block';
     form.reset(); // esto limpia los campos
