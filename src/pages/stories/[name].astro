@@ -1,0 +1,104 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import StoryCard from "../../components/StoryCard.astro";
+
+import { slugify } from "../../utils/stories.js";
+
+import { readFile } from "fs/promises";
+import path from "path";
+
+export async function getStaticPaths() {
+    const filePath = path.resolve("./public/data/stories.json");
+    const json = await readFile(filePath, "utf-8");
+    const stories = JSON.parse(json);
+
+    return stories.map((story) => ({
+        params: { name: slugify(story.title) }, // usa title aquí
+    }));
+}
+
+// Obtenemos el id de la url
+const { name } = Astro.params;
+
+//  JSON de historias
+const filePath = path.resolve("./public/data/stories.json");
+const json = await readFile(filePath, "utf-8");
+const stories = JSON.parse(json);
+
+// Buscamos la historia con el id recibido
+const story = stories.find((s) => slugify(s.title) === name);
+
+if (!story) {
+    throw new Error(`Story with id ${name} not found`);
+}
+---
+
+<MainLayout title={story.title}>
+    <section>
+        <StoryCard
+            id={story.id}
+            title={story.title}
+            region={story.region}
+            description={story.description}
+            isDetail={true}
+        />
+    </section>
+    <a href="/stories" class="back-stories__button">Back</a>
+</MainLayout>
+
+<style>
+    * {
+        /* outline: 1px solid orange; */
+    }
+    section {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 0.1rem 0.1rem;
+        background: oklch(96% 0.01 250); /* fondo muy claro azulado */
+        border-radius: 14px;
+        box-shadow: 0 8px 25px oklch(0% 0 0 / 0.12); /* sombra negra translúcida */
+        display: grid;
+        place-items: center;
+        text-align: center;
+    }
+
+    a {
+        justify-self: start;
+        margin-bottom: 1.5rem;
+        color: oklch(60% 0.15 250); /* azul medio */
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+    .back-stories__button {
+        display: flex;
+        justify-content: center; /* centra horizontalmente */
+        width: 50%;
+        margin: 0.5rem auto 2rem;
+        padding: 0.5rem 1.2rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: oklch(85% 0.02 230); /* azul suave claro */
+        border: 2px solid oklch(60% 0.15 230); /* azul oscuro */
+        border-radius: 8px;
+        text-decoration: none;
+        background-color: oklch(45% 0.1 230); /* azul grisáceo translúcido */
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .back-stories__button:hover {
+        background-color: oklch(55% 0.15 230); /* azul más brillante */
+        color: oklch(100% 0 0); /* blanco puro */
+        box-shadow: 0 4px 8px oklch(40% 0.15 230 / 0.4);
+        transform: translateY(-2px);
+    }
+    @media (max-width: 700px) {
+        section {
+            margin: 2rem 1rem;
+            padding: 1.5rem 2rem;
+        }
+    }
+</style>
