@@ -1,0 +1,132 @@
+---
+const { id, title, region, description, isDetail = false } = Astro.props;
+import { slugify } from "../utils/stories.js";
+const slug = slugify(title);
+---
+
+{
+    isDetail ? (
+        <div class="card detail-card border-card">
+            <h2>{title}</h2>
+            <p class="detail-card_region">
+                <strong>Región: </strong> {region}
+            </p>
+            <p>{description}</p>
+        </div>
+    ) : (
+        <a href={`/stories/${slug}`}>
+            <div class:list={["card", { "border-card": !isDetail }]}>
+                <h2>{title}</h2>
+                <p class="detail-card_region">
+                    <strong>Región: </strong> {region}
+                </p>
+                {isDetail ? (
+                    <p>{description}</p>
+                ) : (
+                    <p>
+                        {description && description.length > 30
+                            ? description.slice(0, 100) + "..."
+                            : description || ""}
+                    </p>
+                )}
+            </div>
+        </a>
+    )
+}
+<style>
+    * {
+        /* outline: 1px solid orange; */
+    }
+    a {
+        text-decoration: none;
+        display: inline-block;
+        margin: 1rem auto;
+    }
+    .card {
+        padding: 1rem;
+        width: auto;
+        color: #f9f9f9;
+        transition: box-shadow 0.2s ease;
+
+        background-color: oklch(100% 0 0 / 0.043);
+        border-radius: 12px;
+        box-shadow: 0 4px 8px oklch(75% 0 0 / 0.05);
+
+        max-width: 360px;
+        cursor: pointer;
+    }
+    .card:hover {
+        box-shadow: 0 0 10px rgba(236, 234, 234, 0.489);
+        transform: translateY(-3px);
+    }
+    .border-card {
+        border: 1px solid #cccccc7a;
+    }
+    h2 {
+        margin-top: 0;
+    }
+    p {
+        margin: 0.5rem 0;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: oklch(60% 0.01 275);
+    }
+
+    /* Estilos para detalle */
+    .detail-card {
+        max-width: 700px;
+        margin: 3rem auto;
+        cursor: default;
+        background-color: oklch(97% 0.005 210 / 0.4);
+        color: #222;
+        padding: 2rem 3rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        text-align: justify;
+        font-size: 1.3rem;
+        font-family: "Georgia", serif;
+    }
+    .detail-card_region::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background-color: oklch(75.67% 0.125 50.7); /* naranja */
+        margin-top: 0.5rem;
+        border-radius: 2px;
+        box-shadow: 0 2px 4px oklch(0% 0 0 / 0.1);
+    }
+    .detail-card:hover {
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    .detail-card h2 {
+        font-size: 3rem;
+        color: #0b7285;
+        margin-bottom: 1rem;
+    }
+    .detail-card p strong {
+        color: #186a8e;
+    }
+
+    @media (max-width: 768px) {
+        .detail-card {
+            max-width: 95%;
+            padding: 1.5rem 1.5rem;
+            font-size: 1.1rem;
+        }
+        .detail-card h2 {
+            font-size: 2rem;
+        }
+    }
+    @media (min-width: 1000px) {
+        .detail-card {
+            margin: 3rem auto 5rem auto;
+        }
+        .card {
+            padding: 1rem;
+            width: auto;
+             max-width: 450px;
+        }
+    }
+</style>
