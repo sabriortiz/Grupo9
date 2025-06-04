@@ -18,7 +18,7 @@ const stories = page.data;
 
 <MainLayout title="stories">
     <div class="page-content">
-        <h1 class="story-title">Stories:</h1>
+        <h1 class="story-title">Historias:</h1>
         <section class="grid">
             {
                 stories.map((story) => (
@@ -36,17 +36,17 @@ const stories = page.data;
                 href={page.url.prev || "#"}
                 class={`button ${!page.url.prev ? "disabled" : ""}`}
             >
-                Prev
+                Previo
             </a>
 
             <a
                 href={page.url.next || "#"}
                 class={`button ${!page.url.next ? "disabled" : ""}`}
             >
-                Next
+                Siguiente
             </a>
 
-            <span>Page {page.currentPage} of {page.lastPage}</span>
+            <span>Página {page.currentPage} de {page.lastPage}</span>
         </nav>
     </div>
 </MainLayout>
