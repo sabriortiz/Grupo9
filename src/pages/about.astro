@@ -1,15 +1,208 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>About</title>
-    </head>
-    <body>
-        
-    </body>
-</html>
+<MainLayout>
+    <h1 class="about-title">Dentro del proyecto</h1>
+    <section class="about">
+        <article class="about-proyect">
+            <h2 class="about-subtitle">Acerca del proyecto</h2>
+            <p class="about-description">
+                ¡Bienvenidos a nuestro proyecto! Este sitio web estático fue creado
+                por tres miembros del equipo como parte de un desafío de codificación
+                organizado por IntegrarTEC – Fundación Integrar. Nuestro equipo eligió
+                explorar el fascinante mundo de las leyendas urbanas. Después de muchas
+                sesiones de lluvia de ideas, risas y trabajo duro, nuestro sitio comenzó
+                a tomar forma. Somos un grupo apasionado de desarrolladores y narradores, 
+                comprometidos a crear contenido atractivo que despierte curiosidad y conexión. 
+                Cada miembro del equipo aporta habilidades y perspectivas únicas, ayudándonos 
+                a crecer tanto técnica como creativamente. Nuestra colaboración sigue impulsando 
+                la evolución de este proyecto, y estamos emocionados de compartirlo con el mundo.
+            </p>
+        </article>
+
+        <article class="about-team">
+            <h2 class="about-subtitle">Acerca de nosotros</h2>
+            <p class="about-description">
+                Somos un pequeño equipo de tres desarrolladores unidos por nuestra
+                pasión compartida por la narración de historias y la tecnología. 
+                Cada uno de nosotros contribuyó con ideas y habilidades únicas para 
+                dar vida a este proyecto, desde la experiencia del usuario y el diseño 
+                hasta la creación de contenido y el desarrollo. Trabajar con Astro nos 
+                permitió construir un sitio web estático rápido y moderno mientras 
+                aprendíamos juntos y superábamos nuestros límites. Este desafío no solo 
+                nos ayudó a crecer como profesionales, sino que también fortaleció nuestra 
+                colaboración y creatividad como equipo. Estamos orgullosos de lo que hemos 
+                logrado y esperamos que disfruten explorando el mundo de las leyendas a 
+                través de nuestra plataforma.
+            </p>
+            <ul class="about-list">
+                <li class="about-member">
+                    <img
+                        src="/Grupo9/images/franco.jpg"
+                        alt="Franco Torrico"
+                        class="about-photo"
+                    />
+                    <div class="about-info">
+                        <h3 class="member-name">Franco Torrico</h3>
+                        <p class="member-description">
+                            Developer. Le apasiona crear experiencias accesibles
+                            y limpias.
+                        </p>
+                    </div>
+                </li>
+                <li class="about-member">
+                    <img
+                        src="/Grupo9/images/sabri.jpg"
+                        alt="Sabrina Ortiz"
+                        class="about-photo"
+                    />
+                    <div class="about-info">
+                        <h3 class="member-name">Sabrina Ortiz</h3>
+                        <p class="member-description">
+                            Frontend developer. Le apasiona crear experiencias
+                            accesibles y limpias.
+                        </p>
+                    </div>
+                </li>
+                <li class="about-member">
+                    <img
+                        src="/Grupo9/images/tommy.jpg"
+                        alt="Tommy Jamiro Quispe"
+                        class="about-photo"
+                    />
+                    <div class="about-info">
+                        <h3 class="member-name">Tommy Jamiro Quispe</h3>
+                        <p class="member-description">
+                            Frontend developer. Le apasiona crear experiencias
+                            accesibles y limpias.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </article>
+    </section>
+</MainLayout>
+
+<style>
+    * {
+        /* outline: 1px solid yellow; */
+    }
+    .about-title {
+        font-size: 2.5rem;
+        /* text-align: center; */
+        padding: 3rem 1rem 1rem;
+        font-weight: 600;
+        font-style: italic;
+        text-transform: uppercase; /* mayus */
+        word-spacing: 2px; /* espaciado de palabras*/
+        text-shadow: 1px 1px 2px oklch(91.49% 0.005 26.1); /* Sombra  */
+    }
+    .about-title::after {
+        content: "";
+        display: block;
+        width: 200px;
+        height: 4px;
+        background-color: oklch(70.19% 0.131 264.2); /* azul decorativo */
+        margin-top: 0.5rem;
+        border-radius: 2px;
+        box-shadow: 0 2px 4px oklch(0% 0 0 / 0.1);
+    }
+    .about {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .about-subtitle {
+        font-size: 1.8rem;
+        font-weight: 500;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .about-subtitle::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color:  oklch(75.67% 0.125 50.7); /* naranja */
+        margin-top: 0.3rem;
+        border-radius: 2px;
+    }
+    .about-proyect,
+    .about-team {
+        background-color:  oklch(100% 0 0 / 0.043);
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 4px 10px oklch(26.61% 0 0 / 0.197);
+    }
+
+    .about-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: oklch(60% 0.01 275);
+    }
+
+    .about-list {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2%;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    .about-member {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        background-color: oklch(98% 0.005 220 / 0.16);
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px  oklch(75% 0 0 / 0.05);
+        transition: transform 0.2s ease;
+    }
+    .about-member:hover {
+        transform: translateY(-3px);
+    }
+    .about-photo {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 2px solid oklch(64.3% 0.2 265.6);
+    }
+
+    .about-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .member-name {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: oklch(55% 0.15 255); 
+    }
+
+    .member-description {
+        margin: 0.25rem 0 0;
+        font-size: 0.95rem;
+        color: oklch(75% 0.02 10);
+    }
+
+    @media (min-width: 600px) {
+        .about-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-member {
+            width: 100%;
+            max-width: 700px;
+        }
+    }
+</style>

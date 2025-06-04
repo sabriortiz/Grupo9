@@ -1,0 +1,135 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import StoryCard from "@components/StoryCard.astro";
+
+import { readFile } from "fs/promises";
+import path from "path";
+
+export const getStaticPaths = async ({ paginate }) => {
+    const filePath = path.resolve("./public/data/stories.json");
+    const json = await readFile(filePath, "utf-8");
+    const stories = JSON.parse(json);
+    return paginate(stories, { pageSize: 6 });
+};
+
+const { page } = Astro.props;
+const stories = page.data;
+---
+
+<MainLayout title="stories">
+    <div class="page-content">
+        <h1 class="story-title">Historias:</h1>
+        <section class="grid">
+            {
+                stories.map((story) => (
+                    <StoryCard
+                        id={story.id}
+                        title={story.title}
+                        region={story.region}
+                        description={story.description}
+                    />
+                ))
+            }
+        </section>
+        <nav>
+            <a
+                href={page.url.prev || "#"}
+                class={`button ${!page.url.prev ? "disabled" : ""}`}
+            >
+                Previo
+            </a>
+
+            <a
+                href={page.url.next || "#"}
+                class={`button ${!page.url.next ? "disabled" : ""}`}
+            >
+                Siguiente
+            </a>
+
+            <span>Página {page.currentPage} de {page.lastPage}</span>
+        </nav>
+    </div>
+</MainLayout>
+
+<style>
+    *{
+        /* outline: 1px solid yellow; */
+    }
+    .page-content {
+        min-height: calc(100vh - 60px); /* ajusta según altura footer */
+
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .story-title {
+        font-size: 2.5rem;
+        /* text-align: center; */
+        padding: 3rem 1rem 1rem;
+        font-weight: 600;
+        font-style: italic;
+        text-transform: uppercase; /* mayus */
+        word-spacing: 2px; /* espaciado de palabras*/
+        text-shadow: 1px 1px 2px oklch(91.49% 0.005 26.1); /* Sombra  */
+    }
+    .story-title::after {
+        content: "";
+        display: block;
+        width: 200px;
+        height: 4px;
+        background-color: oklch(70.19% 0.131 264.2); /* azul decorativo */
+        margin-top: 0.5rem;
+        border-radius: 2px;
+        box-shadow: 0 2px 4px oklch(0% 0 0 / 0.1);
+    }
+    .grid {
+        flex-grow: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(362px, 1fr));
+        gap: 1rem;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        gap: 1rem;
+    }
+    a {
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+        color: #fafafa;
+    }
+    .button {
+        font-weight: 600;
+        font-size: 1.2rem;
+        border: 2px solid oklch(60% 0.15 230); /* azul oscuro */
+        background-color: oklch(45% 0.1 230); /* azul medio translúcido */
+        transition: all 0.2s ease;
+        color: oklch(97% 0.01 270); /* texto muy claro */
+    }
+
+    .button:not(.disabled):hover {
+        background-color: oklch(55% 0.15 230); /* azul más brillante */
+        color: oklch(100% 0 0); /* blanco puro */
+        box-shadow: 0 4px 8px oklch(40% 0.15 230 / 0.4);
+        transform: translateY(-2px);
+    }
+
+    .button.disabled {
+        background-color: oklch(85% 0 0); /* gris claro */
+        border-color: oklch(70% 0 0); /* gris medio */
+        color: oklch(50% 0 0); /* gris más oscuro */
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.6;
+    }
+    /**de 1500 para arriba ya es 3 y 3  */
+    @media (min-width: 1500px) {
+        .grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>

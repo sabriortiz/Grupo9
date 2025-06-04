@@ -1,0 +1,203 @@
+---
+
+---
+
+<header class="Header">
+    <nav>
+        <div class="nav-header">
+            <a href="/Grupo9/">
+        <div class="nav-container">
+            <img class="nav-img" src="/Grupo9/images/header-libros.png" alt="" />
+        </div>
+    </a>
+
+            <input type="checkbox" id="menu-toggle" />
+            <label for="menu-toggle" class="nav-toggle">☰</label>
+
+            <div class="nav-links">
+                <a class="nav-link__center" href="/Grupo9/">Home</a>
+                <a class="nav-link__center" href="/Grupo9/stories">Stories</a>
+                <a class="nav-link__center" href="/Grupo9/public">Public</a>
+                <a class="nav-link__center" href="/Grupo9/about">About</a>
+                <a class="nav-link__center" href="/Grupo9/contact">Contact</a>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+<style>
+    * {
+        /* outline: 1px solid yellow; */
+    }
+
+    .nav-header {
+        background: linear-gradient(
+            to right,
+            oklch(0.7 0.1395 70.94),
+            oklch(0.5 0.1395 70.94)
+        );
+        display: flex;
+        align-items: center;
+        padding: 0.1rem 1rem;
+        gap: 1rem;
+        position: relative;
+
+        .nav-img {
+            height: 70px;
+            width: auto;
+        }
+        .nav-container {
+            padding: 1rem 2rem;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+        .nav-toggle {
+            /* display: none; */
+            font-size: 2rem;
+            cursor: pointer;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: 1px solid black;
+            margin-left: auto;
+            transition: transform 0.5s ease;
+        }
+        #menu-toggle:checked + .nav-toggle {
+            transform: rotate(90deg);
+        }
+        .nav-links {
+            display: none;
+            gap: 2rem;
+            flex-direction: column;
+            animation: slideDown 0.3s ease;
+            /* posicionamiento para que baje el desplegable */
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            z-index: 1;
+            background-color: oklch(0.8 0.1395 80.94);
+        }
+
+        #menu-toggle:checked + .nav-toggle + .nav-links {
+            display: flex;
+        }
+        .nav-link__center {
+            text-decoration: none; /* saco elsubrayado */
+            background-color: oklch(0.7029 0.1518 70.94 / 71.44%);
+            text-align: center;
+            /* font-size: 1.3rem; */
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            /* color: #181818; */
+
+            font-family: "Segoe UI", sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-style: italic;
+            text-transform: uppercase; /* mayus */
+            letter-spacing: 1px; /*eEspaciado entre letras */
+            word-spacing: 2px; /* espaciado de palabras*/
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra  */
+            color: #181818;
+        }
+        .nav-link__center:hover {
+            background-color: oklch(0.5559 0.0745 70.94 / 71.44%);
+        }
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /**Para tablet */
+    @media (max-width: 900px) and (min-width: 600px) {
+        .nav-header {
+            flex-direction: row;
+            gap: 1rem;
+            height: 10rem;
+            align-items: center;
+
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                position: static;
+                justify-content: flex-end;
+                gap: 1rem;
+            }
+            .nav-link__center {
+                padding: 0.2rem;
+                border-radius: 2px;
+                flex-grow: 1;
+                font-family: "Segoe UI", sans-serif;
+                font-size: 1.2rem;
+                font-weight: 600;
+                font-style: italic;
+                text-transform: uppercase; /* mayus */
+                letter-spacing: 1px; /*eEspaciado entre letras */
+                word-spacing: 2px; /* espaciado de palabras*/
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra  */
+                color: #181818;
+            }
+        }
+        #menu-toggle {
+            display: none;
+        }
+        .nav-toggle {
+            display: none;
+        }
+    }
+    /**con esto mayor a 900px pc-escritorio */
+    @media (min-width: 901px) {
+        .nav-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                position: static;
+                justify-content: flex-end;
+                gap: 2rem;
+            }
+            .nav-link__center {
+                padding: 0.2rem;
+                border-radius: 4px;
+                flex-grow: 0.15;
+                /*tipo de letra */
+                font-family: "Segoe UI", sans-serif;
+                font-size: 1.2rem;
+                font-weight: 600;
+                font-style: italic;
+                text-transform: uppercase; /* mayus */
+                letter-spacing: 1px; /*eEspaciado entre letras */
+                word-spacing: 2px; /* espaciado de palabras*/
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Sombra  */
+                color: #181818;
+            }
+        }
+        .nav-toggle {
+            display: none;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+    }
+</style>
