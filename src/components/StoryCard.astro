@@ -1,6 +1,6 @@
 ---
 const { id, title, region, description, isDetail = false } = Astro.props;
-import { slugify } from ".././utils/stories.js";
+import { slugify } from "../utils/stories.js";
 const slug = slugify(title);
 ---
 
@@ -35,7 +35,7 @@ const slug = slugify(title);
 }
 <style>
     * {
-        /* outline: 1px solid yellow; */
+        /* outline: 1px solid orange; */
     }
     a {
         text-decoration: none;
