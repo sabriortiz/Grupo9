@@ -1,23 +1,52 @@
 ---
-import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-const { title = "Urban Legends Atlas" } = Astro.props;
-
+const { title = "Atlas de Leyendas Urbanas" } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-   		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-    <script src="https://kit.fontawesome.com/7ca7ddeec4.js" crossorigin="anonymous"></script>
-        <title>{title}</title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <script
+      src="https://kit.fontawesome.com/7ca7ddeec4.js"
+      crossorigin="anonymous"></script>
+    <title>{title}</title>
+    <meta name="description" content="Atlas de Leyendas Urbanas" />
   </head>
   <body>
-      <Header title="Atlas de Leyendas Urbanas" />
-       <slot />
-      <Footer/>
+    <Header title="Atlas de Leyendas Urbanas" />
+    <slot />
+    <Footer />
   </body>
 </html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid yellow; */
+  }
+  :root {
+    --color-primary: oklch(80% 0.12 250);
+    --color-secondary: oklch(85% 0.08 330);
+    --color-tertiary: oklch(75% 0.15 80);
+    --color-highlight: oklch(90% 0.1 60);
+    --color-info: oklch(85% 0.15 240);
+    --color-danger: oklch(80% 0.2 0);
+    --color-bg: oklch(15% 0.02 240);
+    --color-text: oklch(95% 0.01 0);
+    --color-text-altern: oklch(25% 0.01 0);
+    --color-muted: oklch(85% 0.04 120);
+  }
+  html,
+  body {
+    min-height: 100svh;
+    font-family: system-ui, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+</style>
