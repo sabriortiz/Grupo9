@@ -4,8 +4,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
-
-
   <section class="intro">
     <h1>ATLAS DE LEYENDAS URBANAS</h1>
     <hr />
@@ -15,16 +13,21 @@ import MainLayout from "../layouts/MainLayout.astro";
       <Carousel />
     </div>
     <div class="columna-texto">
-      <p>En cada rincón del mundo hay una historia que no se cuenta en los libros.</p>
-      <p>Este atlas reúne las voces susurradas de pueblos lejanos,mitos urbanos y sombras que recorren las calles al caer la noche.</p>
+      <p>
+        En cada rincón del mundo hay una historia que no se cuenta en los
+        libros.
+      </p>
+      <p>
+        Este atlas reúne las voces susurradas de pueblos lejanos,mitos urbanos y
+        sombras que recorren las calles al caer la noche.
+      </p>
       <p>Descubrí las historias más inquietantes que nunca te contaron.</p>
       <p>Explorá... o compartí la leyenda que te marcó.</p>
       <a href="/Grupo9/stories" class="boton">Explorar Leyendas</a>
-       <a href="/Grupo9/public" class="boton">Compartir Leyenda </a>
+      <a href="/Grupo9/public" class="boton">Compartir Leyenda </a>
     </div>
   </section>
-  
- </MainLayout>
+</MainLayout>
 
 <style>
   .intro {
@@ -35,17 +38,17 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   .intro h1 {
     font-size: 2.9rem;
-    font-weight: bold; 
+    font-weight: bold;
   }
 
-  .intro hr{
-    width:95%;
+  .intro hr {
+    width: 95%;
     margin: 1.8rem auto;
     border: none;
     border-top: 2px solid;
   }
 
-  .home-seccion{
+  .home-seccion {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,7 +61,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     flex: 1;
   }
 
-  .columna-texto{
+  .columna-texto {
     padding: 1rem;
     font-size: 1.59rem;
     line-height: 1.6;
@@ -83,29 +86,28 @@ import MainLayout from "../layouts/MainLayout.astro";
     margin-left: 4rem;
   }
 
- /* para celulares */
-  @media(max-width: 768px) {
-    .home-seccion{
+  /* para celulares */
+  @media (max-width: 768px) {
+    .home-seccion {
       flex-direction: column;
       padding: 1rem;
     }
     .columna-carrusel,
-    .columna-texto{
-      flex:none;
+    .columna-texto {
+      flex: none;
       width: 100%;
     }
 
-    .columna-texto{
+    .columna-texto {
       text-align: center;
     }
 
-    .columna-texto .boton{
+    .columna-texto .boton {
       display: block;
       margin-left: 0;
       width: fit-content;
       margin-bottom: 1rem;
       text-align: left;
-      
     }
   }
 </style>

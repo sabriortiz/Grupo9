@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
-  <h1 class="title-public">Publica tu historia: </h1>
+  <h1 class="title-public">Publica tu historia:</h1>
   <main>
     <section id="leyendas-container">
       <!-- las leyendas se insertan aca -->
@@ -24,21 +24,21 @@ import MainLayout from "../layouts/MainLayout.astro";
 </MainLayout>
 
 <style>
-  *{
+  * {
     /* outline: 1px solid orange; */
   }
-  .title-public{
+  .title-public {
     padding: 2rem;
   }
-  .title-public::after{
-        content: "";
-        display: block;
-        width: 200px;
-        height: 4px;
-        background-color: oklch(70.19% 0.131 264.2); /* azul decorativo */
-        margin-top: 0.5rem;
-        border-radius: 2px;
-        box-shadow: 0 2px 4px oklch(0% 0 0 / 0.1);
+  .title-public::after {
+    content: "";
+    display: block;
+    width: 200px;
+    height: 4px;
+    background-color: oklch(70.19% 0.131 264.2); /* azul decorativo */
+    margin-top: 0.5rem;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px oklch(0% 0 0 / 0.1);
   }
   main {
     padding: 2rem;
