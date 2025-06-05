@@ -80,7 +80,7 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   .boton + .boton {
-    margin-left: 8rem;
+    margin-left: 4rem;
   }
 
  /* para celulares */
@@ -97,6 +97,15 @@ import MainLayout from "../layouts/MainLayout.astro";
 
     .columna-texto{
       text-align: center;
+    }
+
+    .columna-texto .boton{
+      display: block;
+      margin-left: 0;
+      width: fit-content;
+      margin-bottom: 1rem;
+      text-align: left;
+      
     }
   }
 </style>

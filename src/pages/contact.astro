@@ -3,79 +3,88 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
-    <div class="formulario-container">
-    <h2> CONTACTO </h2>
+  <div class="formulario-container">
+    <h2>CONTACTO</h2>
     <form id="contact-form" novalidate>
-        <!-- NOMBRE -->
-        <label for="nombre">Nombre: </label>
-        <input type="text" id="nombre" name="nombre" required />
-        <span class="error" id="error-nombre"></span>
-        <br /><br />
+      <!-- NOMBRE -->
+      <label for="nombre">Nombre: </label>
+      <input type="text" id="nombre" name="nombre" required />
+      <span class="error" id="error-nombre"></span>
+      <br /><br />
 
-       <!-- EMAIL -->
-       <label for="email">Email: </label>
-       <input type="email" id="email" name="email" placeholder="usuario@gmail.com" required>
-       <span class="error" id="error-email"></span>
-       <br /><br />
+      <!-- EMAIL -->
+      <label for="email">Email: </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="usuario@gmail.com"
+        required
+      />
+      <span class="error" id="error-email"></span>
+      <br /><br />
 
-       <!-- MENSAJE -->
-       <label for="mensaje">Mensaje: </label>
-       <textarea id="mensaje" name="mensaje" placeholder="Escribir tu mensaje..." required></textarea>
-       <span class="error" id="error-mensaje"></span>
-       <br /><br />
+      <!-- MENSAJE -->
+      <label for="mensaje">Mensaje: </label>
+      <textarea
+        id="mensaje"
+        name="mensaje"
+        placeholder="Escribir tu mensaje..."
+        required></textarea>
+      <span class="error" id="error-mensaje"></span>
+      <br /><br />
 
-       <!--MENSAJE DE EXITO -->
-       <div id="mensaje-exito" class="mensaje-exito" style="display: none;">¡Mensaje enviado correctamente!</div>
+      <!--MENSAJE DE EXITO -->
+      <div id="mensaje-exito" class="mensaje-exito" style="display: none;">
+        ¡Mensaje enviado correctamente!
+      </div>
 
-       <!--BOTÓN-->
-       <button type="submit">Enviar</button>
+      <!--BOTÓN-->
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
 
-       </form>
-    </div>
-
-
-
-       <script src="/Grupo9/scripts/validarFormulario.js" defer></script>
-
+  <script src="/Grupo9/scripts/validarFormulario.js" defer></script>
 </MainLayout>
 
 <style>
-.formulario-container {
+  .formulario-container {
     display: flex;
     flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    padding:2rem;
-}
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
 
-h2 {
+  h2 {
     text-align: center;
     margin-bottom: 1rem;
     font-size: 3.2rem;
-}
+  }
 
-form {
+  form {
     width: 100%;
-    max-width:500px;
-    padding:2rem;
-    border-radius:8px;
-    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-label{
+  label {
     font-size: 1.2rem;
-}
+  }
 
-input, textarea{
+  input,
+  textarea {
     width: 100%;
-    padding:0.8rem;
-    margin-top:0.5rem;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-}
+  }
 
-button{
+  button {
     width: 100%;
     padding: 1rem;
     background-color: #333;
@@ -83,20 +92,17 @@ button{
     border: none;
     border-radius: 5px;
     font-weight: bold;
-    cursor:pointer;
-}
+    cursor: pointer;
+  }
 
-button:hover{
+  button:hover {
     background-color: #555;
-}
+  }
 
-.mensaje-exito {
+  .mensaje-exito {
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
     margin-bottom: 1rem;
-}
-
+  }
 </style>
-
-
