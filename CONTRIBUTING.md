@@ -25,7 +25,7 @@ Esta metodología nos permitió mantener el control del avance y distribuir las 
 
 ### Nos organizamos 
 
-![ver tareas](public/images/capturaTrello.PNG)
+![ver tareas](public/images/capturaTrello.webp)
 
 ---
 

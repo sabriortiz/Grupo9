@@ -54,11 +54,11 @@ pnpm dev
 
 ### Vista previa del proyecto
 
-![Vista previa del proyecto](public/images/capturaReadme.PNG)
+![Vista previa del proyecto](public/images/capturaReadme.webp)
 
 ### Página de historias
 
-![ver historias](public/images/capturaStories.PNG)
+![ver historias](public/images/capturaStories.webp)
 
 
 ## Participantes
