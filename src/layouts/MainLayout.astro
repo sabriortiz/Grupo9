@@ -7,7 +7,7 @@ const { title = "Atlas de Leyendas Urbanas" } = Astro.props;
 <html lang="es">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/x-icon" href="/Grupo9/favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="/Grupo9/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <script
@@ -18,17 +18,29 @@ const { title = "Atlas de Leyendas Urbanas" } = Astro.props;
   </head>
   <body>
     <Header title="Atlas de Leyendas Urbanas" />
-    <slot />
+    <main>
+
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
 
 <style is:global>
-  * {
+    *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     /* outline: 1px solid yellow; */
+  }
+  html,
+  body {
+    /* outline: 1px solid yellow; */
+    /* margin: 0;
+    padding: 0; */
+    font-family: system-ui, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
   }
   :root {
     --color-primary: oklch(80% 0.12 250);
@@ -44,6 +56,8 @@ const { title = "Atlas de Leyendas Urbanas" } = Astro.props;
   }
   html,
   body {
+    margin: 0;
+    padding: 0;
     font-family: system-ui, sans-serif;
     background-color: var(--color-bg);
     color: var(--color-text);
