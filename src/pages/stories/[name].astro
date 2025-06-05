@@ -43,7 +43,14 @@ if (!story) {
             isDetail={true}
         />
     </section>
-    <a href="/stories" class="back-stories__button">Back</a>
+    <a
+        href="/stories/1"
+        onclick="if (history.length > 1) { 
+                    history.back(); 
+                    return false; 
+                 }"
+        class="back-stories__button">Volver a historias
+        </a>
 </MainLayout>
 
 <style>

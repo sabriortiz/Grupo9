@@ -12,7 +12,7 @@ export const getStaticPaths = async ({ paginate }) => {
     return paginate(stories, { pageSize: 6 });
 };
 
-const { page } = Astro.props;
+const { page } = Astro.props as { page: {data:any[],url:any,currentPage:number,lastPage:number} };
 const stories = page.data;
 ---
 
